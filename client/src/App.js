@@ -32,7 +32,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<PageNotFound />} />
         {/* Private paths NEED TO UPDATE ACCESS */}
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<Dashboard token={token} removeToken={removeToken}/>} />
       </Routes>
     </div>
   );
