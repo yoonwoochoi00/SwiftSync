@@ -43,8 +43,9 @@ const signInTheme = createTheme({
 export default function SignIn(props) {
   const [signInForm, setSignInForm] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+    invalidCredentials: false
+  });
 
   const navigate = useNavigate()
 
@@ -128,6 +129,7 @@ export default function SignIn(props) {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+            {/* TODO: Add a component that displays when sign in was unsuccessful */}
             <Button
               type="submit"
               fullWidth
