@@ -1,29 +1,17 @@
 // React related imports
 import React, { useEffect } from 'react';
 
+// Design related imports
+import logo from "../../logo_black.png";
+
 // MUI related imports
 import CssBaseline from '@mui/material/CssBaseline';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit">
-        SwiftSync
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
+// Component imports
+import Copyright from '../../components/public/copyright';
 
 const signInTheme = createTheme({
   palette: {
@@ -59,8 +47,12 @@ export default function PageNotFound() {
             alignItems: 'center',
           }}
         >
-          <Typography component="h3" variant="h3">
-            Page Not Found
+          <img src={logo} style={{ width: "400px"}} alt="SwiftSync Logo"/>
+          <Typography variant="h4" align="center" sx={{mt: 1, mb: 2}}>
+            Page not found
+          </Typography>
+          <Typography variant="h6" align="center">
+            Something went wrong. Please try again.
           </Typography>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />

@@ -11,6 +11,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 
 // Component imports
 import Copyright from '../../components/public/copyright';
@@ -48,6 +50,14 @@ export default function SignIn() {
         navigate("/signup")
     }
 
+    function navigateToDashboard() {
+        navigate("/dashboard")
+    }
+
+    function navigateToInvalidPage() {
+        navigate("/thisdoesntexist")
+    }
+
     return (
     <ThemeProvider theme={signInTheme}>
         <Container component="main" maxWidth="xs">
@@ -60,6 +70,9 @@ export default function SignIn() {
         }}
         >
             <img src={logo} style={{ width: "400px"}} alt="SwiftSync Logo"/>
+            <Typography variant="h4" align="center" sx={{mt: 1}}>
+                Pages in Development
+            </Typography>
             <Button
                 type="submit"
                 fullWidth
@@ -77,6 +90,26 @@ export default function SignIn() {
                 onClick={navigateToSignUp}
             >
                 Sign Up
+            </Button>
+            <Divider style={{background: "#9DB2BF", width: "100%"}} variant='middle'/>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 2, mb: 2 }}
+                onClick={navigateToDashboard}
+            >
+                Dashboard
+            </Button>
+            <Divider style={{background: "#9DB2BF", width: "100%"}} variant='middle'/>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 2, mb: 2 }}
+                onClick={navigateToInvalidPage}
+            >
+                Page Not Found
             </Button>
         </Box>
         <Copyright sx={{ mt: 8, mb: 4 }} />
