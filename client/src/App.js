@@ -12,7 +12,12 @@ import PageNotFound from "./pages/public/pageNotFound.js";
 import { Helmet } from "react-helmet";
 import Dashboard from "./pages/private/dashboard.js";
 
+// Security components
+import useToken from "./components/private/useToken.js";
+
 function App() {
+  const { token, removeToken, setToken } = useToken();
+
   return (
     <div>
       {/* Global design */}
@@ -23,7 +28,7 @@ function App() {
       <Routes>
         {/* Public paths */}
         <Route path="/" element={<Home />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signin" element={<SignIn setToken={setToken}/>} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="*" element={<PageNotFound />} />
         {/* Private paths NEED TO UPDATE ACCESS */}

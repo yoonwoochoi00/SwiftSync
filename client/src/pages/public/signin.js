@@ -1,5 +1,6 @@
 // React related imports
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 // Design related imports
@@ -39,24 +40,52 @@ const signInTheme = createTheme({
   },
 });
 
-export default function SignIn() {
+export default function SignIn(props) {
+  const [signInForm, setSignInForm] = useState({
+    email: "",
+    password: ""
+  })
+
   const navigate = useNavigate()
 
   const handleSubmit = (event) => {
+    axios({
+      method: "POST",
+      url: "/signIn",
+      data: {
+        emailAddress: signInForm.email,
+        password: signInForm.password,
+      }
+    }).then((response) => {
+      props.setToken(response.data.access_token)
+      navigate("/dashboard");
+    }).catch((error) => {
+      if (error.response) {
+        alert("Incorrect username or password.");
+      }
+    })
+
+    setSignInForm(({
+      emailAddress: "",
+      password: ""
+    }))
+
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
   };
+
+  function handleSignInFormChange(event) {
+    const {value, name} = event.target;
+    setSignInForm(prevNote => ({
+      ...prevNote, [name]: value
+    }));
+  }
 
   function navigateToHome() {
     navigate("/");
 }
 
   useEffect(() => {
-    document.title = "SwiftSync | Sign In";  
+    document.title = "SwiftSync | Sign In";
   }, []);
 
   return (
@@ -82,6 +111,7 @@ export default function SignIn() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={handleSignInFormChange}
             />
             <TextField
               margin="normal"
@@ -92,6 +122,7 @@ export default function SignIn() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={handleSignInFormChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

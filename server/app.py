@@ -8,7 +8,7 @@ api = Flask(__name__)
 api.config["JWT_SECRET_KEY"] = "swiftsync_integration"
 jwt = JWTManager(api)
 
-@api.route('/createToken', methods=["POST"])
+@api.route('/signIn', methods=["POST"])
 def create_token():
     """
     Creates and return an access token if the provided credentials are valid.
@@ -49,7 +49,7 @@ def refresh_expiring_jwts(response):
         # Case where there is not a valid JWT. Just return the original respone
         return response
 
-@api.route("/signout", methods=["POST"])
+@api.route("/signOut", methods=["POST"])
 def sign_out():
     """
     Deletes cookies including access token to sign out.
