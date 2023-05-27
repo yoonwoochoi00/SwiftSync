@@ -1,8 +1,9 @@
 // React related imports
 import React, { useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 // Design related imports
-import logo from "../logo.png";
+import logo from "../../logo.png";
 
 // MUI related imports
 import Button from '@mui/material/Button';
@@ -13,23 +14,11 @@ import Checkbox from '@mui/material/Checkbox';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit">
-        SwiftSync
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// Component imports
+import Copyright from '../../components/public/copyright';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -51,6 +40,8 @@ const signInTheme = createTheme({
 });
 
 export default function SignIn() {
+  const navigate = useNavigate()
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -59,6 +50,10 @@ export default function SignIn() {
       password: data.get('password'),
     });
   };
+
+  function navigateToHome() {
+    navigate("/");
+}
 
   useEffect(() => {
     document.title = "SwiftSync | Sign In";  
@@ -76,7 +71,7 @@ export default function SignIn() {
             alignItems: 'center',
           }}
         >
-          <img src={logo} style={{ width: "400px"}} alt="SwiftSync Logo"/>
+          <img src={logo} style={{ width: "400px"}} alt="SwiftSync Logo" onClick={navigateToHome}/>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
