@@ -39,7 +39,7 @@ const signInTheme = createTheme({
       light: "#33a095",
       dark: "#005f56",
       contrastText: "#fff",
-    },
+    }
   },
 });
 
@@ -130,7 +130,7 @@ export default function SignIn(props) {
             />
             {signInForm.invalidCredentials && 
               <Paper sx={{display: "flex", mt: 1}} elevation={10}>
-                <ErrorIcon style={{fill: "#ED2B2A"}} sx={{ ml: 1, mr: 1, mt: 1 }}/>
+                <ErrorIcon style={{fill: "#DC3545"}} sx={{ ml: 1, mr: 1, mt: 1 }}/>
                 <Typography sx={{ mt: 1, mb: 1}}>
                   Invalid email address or password
                 </Typography>
