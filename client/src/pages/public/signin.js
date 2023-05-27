@@ -129,7 +129,7 @@ export default function SignIn(props) {
               onChange={handleSignInFormChange}
             />
             {signInForm.invalidCredentials && 
-              <Paper sx={{display: "flex", mt: 1}}>
+              <Paper sx={{display: "flex", mt: 1}} elevation={10}>
                 <ErrorIcon style={{fill: "#ED2B2A"}} sx={{ ml: 1, mr: 1, mt: 1 }}/>
                 <Typography sx={{ mt: 1, mb: 1}}>
                   Invalid email address or password
