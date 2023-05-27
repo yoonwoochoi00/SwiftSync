@@ -18,7 +18,7 @@ function App() {
       {/* Global design */}
       <Helmet>
         <title>SwiftSync</title>
-        <style>{'body { background-color: #D8D8D8; }'}</style>
+        <style>{'body { background-color: #f5f5f5; }'}</style>
       </Helmet>
       <Routes>
         {/* Public paths */}

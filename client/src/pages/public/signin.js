@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 
 // Design related imports
-import logo from "../../logo.png";
+import logo from "../../logo_black.png";
 
 // MUI related imports
 import Button from '@mui/material/Button';
