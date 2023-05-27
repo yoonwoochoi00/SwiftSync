@@ -16,10 +16,13 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Paper from '@mui/material/Paper';
+import ErrorIcon from '@mui/icons-material/Error';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 // Component imports
 import Copyright from '../../components/public/copyright';
+import { Typography } from '@mui/material';
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -62,7 +65,7 @@ export default function SignIn(props) {
       navigate("/dashboard");
     }).catch((error) => {
       if (error.response) {
-        alert("Incorrect username or password.");
+        setSignInForm({invalidCredentials: true})
       }
     })
 
@@ -125,11 +128,14 @@ export default function SignIn(props) {
               autoComplete="current-password"
               onChange={handleSignInFormChange}
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            {/* TODO: Add a component that displays when sign in was unsuccessful */}
+            {signInForm.invalidCredentials && 
+              <Paper sx={{display: "flex", mt: 1}}>
+                <ErrorIcon style={{fill: "#ED2B2A"}} sx={{ ml: 1, mr: 1, mt: 1 }}/>
+                <Typography sx={{ mt: 1, mb: 1}}>
+                  Invalid email address or password
+                </Typography>
+              </Paper>
+            }
             <Button
               type="submit"
               fullWidth
