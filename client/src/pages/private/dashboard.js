@@ -28,6 +28,7 @@ import Paper from '@mui/material/Paper';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const dashboardTheme = createTheme({
     palette: {
@@ -87,10 +88,17 @@ export default function Dashboard() {
                         >
                         Dashboard
                         </Typography>
+                        {/* Notification */}
                         <IconButton color="inherit">
-                        <Badge badgeContent={4} color="secondary">
-                            <NotificationsIcon />
-                        </Badge>
+                            <Badge badgeContent={4} color="secondary">
+                                <NotificationsIcon />
+                            </Badge>
+                        </IconButton>
+                        {/* Account */}
+                        <IconButton color="inherit">
+                            <Badge color="secondary">
+                                <AccountCircleIcon />
+                            </Badge>
                         </IconButton>
                     </Toolbar>
                 </AppBar>
