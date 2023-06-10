@@ -37,7 +37,6 @@ const signInTheme = createTheme({
 export default function SignIn() {
     const navigate = useNavigate()
 
-    // Set document title
     useEffect(() => {
         document.title = "SwiftSync";  
     }, []);
