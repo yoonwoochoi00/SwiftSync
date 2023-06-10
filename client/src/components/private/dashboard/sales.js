@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import Title from './title';
+import Title from '../title';
 
 export default function Sales() {
     return (

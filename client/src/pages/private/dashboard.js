@@ -4,12 +4,12 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 
 // Component imports
-import { mainListItems, secondaryListItems } from '../../components/private/listItems';
-import Chart from '../../components/private/chart';
-import Sales from '../../components/private/sales';
-import Orders from '../../components/private/orders';
-import AppBar from "../../components/private/appBar";
-import Drawer from "../../components/private/drawer";
+import { mainListItems, secondaryListItems } from '../../components/private/sideBar/listItems';
+import Chart from '../../components/private/dashboard/chart';
+import Sales from '../../components/private/dashboard/sales';
+import Orders from '../../components/private/dashboard/orders';
+import AppBar from "../../components/private/sideBar/appBar";
+import Drawer from "../../components/private/sideBar/drawer";
 import Copyright from '../../components/public/copyright';
 
 // Design related import
