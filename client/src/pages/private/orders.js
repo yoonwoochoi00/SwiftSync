@@ -49,7 +49,7 @@ const dashboardTheme = createTheme({
 
 export default function Dashboard() {
     useEffect(() => {
-        document.title = "SwiftSync | Dashboard";
+        document.title = "SwiftSync | Orders";
     }, []);
 
     const [open, setOpen] = React.useState(true);
@@ -138,40 +138,7 @@ export default function Dashboard() {
                 <Toolbar />
                 <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                     <Grid container spacing={3}>
-                        {/* Chart */}
-                        <Grid item xs={12} md={8} lg={9}>
-                            <Paper
-                            sx={{
-                                p: 2,
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: 240,
-                            }}
-                            >
-                                <Chart />
-                            </Paper>
-                        </Grid>
-
-                        {/* Recent sales */}
-                        <Grid item xs={12} md={4} lg={3}>
-                            <Paper
-                            sx={{
-                                p: 2,
-                                display: 'flex',
-                                flexDirection: 'column',
-                                height: 240,
-                            }}
-                            >
-                                <Sales />
-                            </Paper>
-                        </Grid>
-
-                        {/* Recent orders */}
-                        <Grid item xs={12}>
-                            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                            <Orders />
-                            </Paper>
-                        </Grid>
+                        <Typography>Orders</Typography>
                     </Grid>
                     <Copyright sx={{ pt: 4 }} />
                 </Container>

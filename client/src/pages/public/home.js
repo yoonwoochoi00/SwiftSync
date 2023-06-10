@@ -36,26 +36,14 @@ const signInTheme = createTheme({
 
 export default function SignIn() {
     const navigate = useNavigate()
-    
+
     // Set document title
     useEffect(() => {
         document.title = "SwiftSync";  
     }, []);
 
-    function navigateToSignIn() {
-        navigate("/signin");
-    }
-
-    function navigateToSignUp() {
-        navigate("/signup")
-    }
-
-    function navigateToDashboard() {
-        navigate("/dashboard")
-    }
-
-    function navigateToInvalidPage() {
-        navigate("/thisdoesntexist")
+    function navigateTo(url) {
+        navigate(url);
     }
 
     return (
@@ -78,7 +66,7 @@ export default function SignIn() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3}}
-                onClick={navigateToSignIn}
+                onClick={event => navigateTo("/signin")}
             >
                 Sign In
             </Button>
@@ -87,7 +75,7 @@ export default function SignIn() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={navigateToSignUp}
+                onClick={event => navigateTo("/signup")}
             >
                 Sign Up
             </Button>
@@ -97,9 +85,18 @@ export default function SignIn() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 2, mb: 2 }}
-                onClick={navigateToDashboard}
+                onClick={event => navigateTo("/dashboard")}
             >
                 Dashboard
+            </Button>
+            <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 2, mb: 2 }}
+                onClick={event => navigateTo("/orders")}
+            >
+                Orders
             </Button>
             <Divider style={{background: "#9DB2BF", width: "100%"}} variant='middle'/>
             <Button
@@ -107,7 +104,7 @@ export default function SignIn() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 2, mb: 2 }}
-                onClick={navigateToInvalidPage}
+                onClick={event => navigateTo("/randompage")}
             >
                 Page Not Found
             </Button>
