@@ -6,11 +6,12 @@ import SignIn from "./pages/public/signin.js";
 import SignUp from "./pages/public/signup.js";
 
 // Private pages
+import Dashboard from "./pages/private/dashboard.js";
+import Orders from "./pages/private/orders.js"
 import PageNotFound from "./pages/public/pageNotFound.js";
 
 // Design related imports
 import { Helmet } from "react-helmet";
-import Dashboard from "./pages/private/dashboard.js";
 
 // Security components
 import useToken from "./components/private/useToken.js";
@@ -33,6 +34,7 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         {/* Private paths NEED TO UPDATE ACCESS */}
         <Route path="/dashboard" element={<Dashboard token={token} removeToken={removeToken}/>} />
+        <Route path="/orders" element={<Orders token={token} removeToken={removeToken}/>} />
       </Routes>
     </div>
   );
