@@ -49,7 +49,7 @@ const dashboardTheme = createTheme({
 
 export default function Dashboard() {
     useEffect(() => {
-        document.title = "SwiftSync | Dashboard";  
+        document.title = "SwiftSync | Dashboard";
     }, []);
 
     const [open, setOpen] = React.useState(true);
